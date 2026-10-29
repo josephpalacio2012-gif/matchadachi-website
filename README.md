@@ -45,10 +45,10 @@ Everything lives in `src/config/`. Each file starts with a `_howToEdit` note.
 1. **Buy the domain** matchadachi.ph (for example from Porkbun or Namecheap). Pick 2 years and turn on auto-renew.
 2. **Cloudflare:** create a free account, then **Add a site** → `matchadachi.ph` → Free plan. Copy the 2 nameservers Cloudflare gives you into your domain's nameserver settings at the registrar. This can take a few hours, and up to 24–48 hours.
 3. **GitHub:** create a free account and an empty private repository named `matchadachi-website`. Claude uploads this folder there.
-4. **Cloudflare Pages:** Workers & Pages → Create → Pages → **Connect to Git** → choose `matchadachi-website`.
-   - Framework preset: **Vite** (or React (Vite))
+4. **Cloudflare:** Compute → Workers & Pages → Create → import the `matchadachi-website` repository from GitHub.
+   - Project name: `matchadachi` (must match `name` in `wrangler.jsonc`)
    - Build command: `npm run build`
-   - Build output directory: `dist`
+   - Deploy command: `npx wrangler deploy` (uses `wrangler.jsonc`, which serves the `dist` folder)
 5. In the new Pages project, go to **Custom domains** → add `matchadachi.ph` (and `www.matchadachi.ph`).
 
 After that, every change saved to GitHub updates the live site automatically within about a minute.

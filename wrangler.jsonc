@@ -1,0 +1,9 @@
+// Cloudflare deploy settings: serve the built site (dist/) as static files.
+{
+  "name": "matchadachi",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}
