@@ -49,7 +49,9 @@ Everything lives in `src/config/`. Each file starts with a `_howToEdit` note.
    - Project name: `matchadachi` (must match `name` in `wrangler.jsonc`)
    - Build command: `npm run build`
    - Deploy command: `npx wrangler deploy` (uses `wrangler.jsonc`, which serves the `dist` folder)
-5. In the new Pages project, go to **Custom domains** → add `matchadachi.ph` (and `www.matchadachi.ph`).
+5. Open the `matchadachi` Worker → **Settings** → **Domains & Routes** → **Add** → **Custom domain** → `matchadachi.ph` (repeat for `www.matchadachi.ph`). The domain must already be added to Cloudflare (step 2).
+
+Temporary address before the domain is connected: https://matchadachi.josephpalacio2012.workers.dev
 
 After that, every change saved to GitHub updates the live site automatically within about a minute.
 
