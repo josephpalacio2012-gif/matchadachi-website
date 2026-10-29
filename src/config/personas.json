@@ -1,0 +1,46 @@
+{
+  "_howToEdit": "The three matcha personas. 'q1Answer' is the answer to Question 1 that leads to this persona. 'variant' is the blend/level used for this persona's drinks. 'bolderVariant' (optional) is the version suggested as the second pick when someone answers 'A bolder version of my usual'.",
+  "personas": [
+    {
+      "id": "curious",
+      "name": "Matcha Curious",
+      "q1Answer": "smooth",
+      "variant": "L1",
+      "blend": "Dachi Blend Level 1",
+      "profile": "Sweet, creamy, light matcha",
+      "headline": "You're a Matcha Curious!",
+      "explainShort": "You like matcha smooth and sweet, with the creaminess up front.",
+      "explainLong": "You like matcha smooth and sweet, with the creaminess up front. Dachi Blend Level 1 keeps the matcha gentle, so every sip is easy to enjoy.",
+      "bolderVariant": "L2"
+    },
+    {
+      "id": "craver",
+      "name": "Matcha Craver",
+      "q1Answer": "strong",
+      "variant": "L2",
+      "blend": "Dachi Blend Level 2",
+      "profile": "Sweet, creamy, strong matcha",
+      "headline": "You're a Matcha Craver!",
+      "explainShort": "You want to really taste the matcha, still sweet and creamy.",
+      "explainLong": "You want to really taste the matcha. Dachi Blend Level 2 gives you a stronger, more pronounced matcha flavor while keeping the sweet, creamy body you like."
+    },
+    {
+      "id": "aficionado",
+      "name": "Matcha Aficionado",
+      "q1Answer": "complex",
+      "variant": "JB",
+      "blend": "Japan Blend",
+      "profile": "Nutty, umami, first-harvest matcha",
+      "headline": "You're a Matcha Aficionado!",
+      "explainShort": "You enjoy matcha for its own character: nutty, umami and layered.",
+      "explainLong": "You enjoy matcha for its own character: nutty, umami and layered. Japan Blend is first-harvest matcha from Izumo, Shimane, from the Okumidori and Samidori cultivars."
+    }
+  ],
+  "explanationDepth": {
+    "_howToEdit": "Question 4 (familiarity) sets how much the result screen explains. It never changes which persona or drink is recommended.",
+    "new": "full",
+    "sometimes": "standard",
+    "regular": "brief"
+  },
+  "levelPrimer": "At Matchadachi, Level 1 and Level 2 tell you how strong the matcha is in your Dachi Blend drink. Japan Blend is a separate first-harvest matcha with a nuttier, umami taste. They are different tastes, and none is better than another."
+}

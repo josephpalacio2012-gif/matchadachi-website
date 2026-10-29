@@ -1,0 +1,80 @@
+{
+  "_howToEdit": "One entry per drink. 'variants' lists ONLY the versions actually sold: L1 = Dachi Blend Level 1, L2 = Dachi Blend Level 2, JB = Japan Blend, STD = no blend/level (e.g. Hojicha). The quiz will never recommend a version that is not listed here.",
+  "variantLabels": {
+    "L1": "Level 1",
+    "L2": "Level 2",
+    "JB": "Japan Blend",
+    "STD": ""
+  },
+  "blendNotes": {
+    "L1": "Dachi Blend Level 1: gentle matcha, sweet and creamy.",
+    "L2": "Dachi Blend Level 2: a stronger, more pronounced matcha taste, still sweet and creamy.",
+    "JB": "Japan Blend: first-harvest matcha from Izumo, Shimane, from Okumidori and Samidori cultivars. Nutty and umami."
+  },
+  "products": [
+    {
+      "id": "ichicha",
+      "name": "Ichicha",
+      "description": "Sweetened matcha latte with strawberry jam.",
+      "kind": "matcha",
+      "variants": ["L1", "L2", "JB"]
+    },
+    {
+      "id": "machami",
+      "name": "Machami",
+      "description": "Sweetened matcha latte with mango jam.",
+      "kind": "matcha",
+      "variants": ["L1", "L2", "JB"]
+    },
+    {
+      "id": "torocha",
+      "name": "Torocha",
+      "description": "Sweetened matcha latte.",
+      "kind": "matcha",
+      "variants": ["L1", "L2", "JB"]
+    },
+    {
+      "id": "hachami",
+      "name": "Hachami",
+      "description": "Matcha latte with honey.",
+      "kind": "matcha",
+      "variants": ["L1", "L2"]
+    },
+    {
+      "id": "reicha",
+      "name": "Reicha",
+      "description": "Unsweetened matcha latte.",
+      "kind": "matcha",
+      "variants": ["L1", "L2", "JB"]
+    },
+    {
+      "id": "shiocha",
+      "name": "Shiocha",
+      "description": "Sweetened matcha latte with thick sea-salt cream.",
+      "kind": "matcha",
+      "variants": ["L1", "L2", "JB"]
+    },
+    {
+      "id": "cococha",
+      "name": "Cococha",
+      "description": "Coconut juice topped with a matcha cream cloud.",
+      "kind": "matcha",
+      "variants": ["L1", "L2"]
+    },
+    {
+      "id": "marokokucha",
+      "name": "Marokokucha",
+      "description": "Cereal milk matcha latte with sea-salt cream.",
+      "kind": "matcha",
+      "variants": ["L1", "L2"]
+    },
+    {
+      "id": "hojicha",
+      "name": "Hojicha",
+      "description": "Roasted green tea latte.",
+      "kind": "roasted",
+      "kindLabel": "Roasted green tea · not matcha",
+      "variants": ["STD"]
+    }
+  ]
+}

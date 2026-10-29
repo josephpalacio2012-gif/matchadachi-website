@@ -1,0 +1,49 @@
+{
+  "_howToEdit": "Question and answer wording can be edited freely. Do not change the 'id' values unless you also update rules.json and personas.json.",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "What kind of matcha experience do you enjoy?",
+      "options": [
+        { "id": "smooth", "label": "Smooth, sweet, and creamy" },
+        { "id": "strong", "label": "A stronger, more pronounced matcha taste" },
+        { "id": "complex", "label": "Nutty, umami, and more complex flavors" }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "Which flavors appeal to you more?",
+      "options": [
+        { "id": "fruity", "label": "Fruity and refreshing" },
+        { "id": "classic", "label": "Classic and creamy" }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "How sweet do you like your drinks?",
+      "options": [
+        { "id": "sweet", "label": "Sweet and indulgent" },
+        { "id": "balanced", "label": "Balanced, not too sweet" },
+        { "id": "less", "label": "Less sweet, more tea-forward" }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "How familiar are you with matcha?",
+      "options": [
+        { "id": "new", "label": "I'm new to matcha" },
+        { "id": "sometimes", "label": "I drink matcha occasionally" },
+        { "id": "regular", "label": "I drink matcha regularly" }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "What are you in the mood for today?",
+      "options": [
+        { "id": "familiar", "label": "Something familiar and comforting" },
+        { "id": "bolder", "label": "A bolder version of my usual" },
+        { "id": "new", "label": "Something new and exciting" }
+      ]
+    }
+  ]
+}

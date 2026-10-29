@@ -1,0 +1,126 @@
+{
+  "_howToEdit": "Drink rules for each persona, checked top to bottom. The FIRST rule whose 'when' matches the customer's answers wins. A rule with an empty 'when' is the fallback and must stay last. 'variant' must be one that products.json lists for that drink, or the tests will fail.",
+  "rules": [
+    {
+      "persona": "curious",
+      "when": { "q5": ["new"], "q3": ["sweet"] },
+      "primary": { "product": "marokokucha", "variant": "L1" },
+      "secondary": { "product": "cococha", "variant": "L1" },
+      "why": "You want something new and you like it sweet. Marokokucha brings cereal milk and sea-salt cream together with gentle Level 1 matcha."
+    },
+    {
+      "persona": "curious",
+      "when": { "q5": ["new"] },
+      "primary": { "product": "cococha", "variant": "L1" },
+      "secondary": { "product": "marokokucha", "variant": "L1" },
+      "why": "You want something new that isn't too heavy. Cococha is coconut juice under a matcha cream cloud, light and refreshing."
+    },
+    {
+      "persona": "curious",
+      "when": { "q2": ["fruity"] },
+      "primary": { "product": "ichicha", "variant": "L1" },
+      "secondary": { "product": "machami", "variant": "L1" },
+      "why": "You picked fruity. Ichicha pairs gentle Level 1 matcha with strawberry jam."
+    },
+    {
+      "persona": "curious",
+      "when": { "q2": ["classic"], "q3": ["less"] },
+      "primary": { "product": "reicha", "variant": "L1" },
+      "secondary": { "product": "hachami", "variant": "L1" },
+      "why": "You like it classic and less sweet. Reicha is unsweetened, so you taste the milk and the matcha as they are."
+    },
+    {
+      "persona": "curious",
+      "when": { "q2": ["classic"], "q3": ["balanced"] },
+      "primary": { "product": "hachami", "variant": "L1" },
+      "secondary": { "product": "torocha", "variant": "L1" },
+      "why": "You like it classic and creamy, not too sweet. Hachami is a matcha latte sweetened with honey."
+    },
+    {
+      "persona": "curious",
+      "when": {},
+      "primary": { "product": "torocha", "variant": "L1" },
+      "secondary": { "product": "hachami", "variant": "L1" },
+      "why": "You like it classic, creamy and sweet. Torocha is our sweetened matcha latte, the easiest place to start."
+    },
+
+    {
+      "persona": "craver",
+      "when": { "q5": ["new"], "q3": ["sweet"] },
+      "primary": { "product": "marokokucha", "variant": "L2" },
+      "secondary": { "product": "cococha", "variant": "L2" },
+      "why": "You want something new and indulgent. Marokokucha layers cereal milk and sea-salt cream over stronger Level 2 matcha."
+    },
+    {
+      "persona": "craver",
+      "when": { "q5": ["new"] },
+      "primary": { "product": "cococha", "variant": "L2" },
+      "secondary": { "product": "marokokucha", "variant": "L2" },
+      "why": "You want something new and refreshing. Cococha tops coconut juice with a Level 2 matcha cream cloud."
+    },
+    {
+      "persona": "craver",
+      "when": { "q2": ["fruity"] },
+      "primary": { "product": "ichicha", "variant": "L2" },
+      "secondary": { "product": "machami", "variant": "L2" },
+      "why": "You picked fruity and you like the matcha strong. Ichicha pairs Level 2 matcha with strawberry jam."
+    },
+    {
+      "persona": "craver",
+      "when": { "q2": ["classic"], "q3": ["less"] },
+      "primary": { "product": "reicha", "variant": "L2" },
+      "secondary": { "product": "torocha", "variant": "L2" },
+      "why": "You like it less sweet and matcha-forward. Reicha is unsweetened, so Level 2 matcha leads every sip."
+    },
+    {
+      "persona": "craver",
+      "when": { "q2": ["classic"], "q5": ["bolder"] },
+      "primary": { "product": "shiocha", "variant": "L2" },
+      "secondary": { "product": "torocha", "variant": "L2" },
+      "why": "You want a bolder take on a classic. Shiocha adds thick sea-salt cream on top of Level 2 matcha for a richer cup."
+    },
+    {
+      "persona": "craver",
+      "when": {},
+      "primary": { "product": "torocha", "variant": "L2" },
+      "secondary": { "product": "shiocha", "variant": "L2" },
+      "why": "You want something familiar with a strong matcha taste. Torocha is our sweetened matcha latte at Level 2."
+    },
+
+    {
+      "persona": "aficionado",
+      "when": { "q5": ["new"] },
+      "primary": { "product": "shiocha", "variant": "JB" },
+      "secondary": { "product": "hojicha", "variant": "STD" },
+      "why": "You want something new. Shiocha Japan Blend puts thick sea-salt cream over nutty, umami first-harvest matcha. Curious about roasted tea? Hojicha is a roasted green tea latte to try next."
+    },
+    {
+      "persona": "aficionado",
+      "when": { "q2": ["fruity"] },
+      "primary": { "product": "ichicha", "variant": "JB" },
+      "secondary": { "product": "machami", "variant": "JB" },
+      "why": "You picked fruity. Ichicha Japan Blend pairs strawberry jam with first-harvest matcha from Izumo, Shimane."
+    },
+    {
+      "persona": "aficionado",
+      "when": { "q2": ["classic"], "q3": ["sweet"] },
+      "primary": { "product": "torocha", "variant": "JB" },
+      "secondary": { "product": "reicha", "variant": "JB" },
+      "why": "You like it classic and sweet. Torocha Japan Blend is a sweetened latte that lets the nutty, umami matcha come through."
+    },
+    {
+      "persona": "aficionado",
+      "when": { "q2": ["classic"], "q3": ["balanced"] },
+      "primary": { "product": "reicha", "variant": "JB" },
+      "secondary": { "product": "shiocha", "variant": "JB" },
+      "why": "You want the matcha front and center. Reicha Japan Blend is unsweetened, the purest way to taste first-harvest matcha."
+    },
+    {
+      "persona": "aficionado",
+      "when": {},
+      "primary": { "product": "reicha", "variant": "JB" },
+      "secondary": { "product": "torocha", "variant": "JB" },
+      "why": "You like it tea-forward. Reicha Japan Blend is unsweetened, the purest way to taste first-harvest matcha from Izumo, Shimane."
+    }
+  ]
+}
