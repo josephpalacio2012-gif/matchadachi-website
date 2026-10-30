@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import site from './config/site.json'
+import menu from './config/menu.json'
 import {
   type Answers,
   type DrinkPick,
@@ -12,27 +13,55 @@ import {
 } from './lib/recommend'
 import { initTracking, track } from './lib/track'
 
-type Screen = 'home' | 'quiz' | 'reveal' | 'result'
+type Route = 'home' | 'quiz'
+type QuizScreen = 'landing' | 'questions' | 'reveal' | 'result'
 
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
 
+/** matchadachi.ph/quiz (the QR code) opens the quiz page; everything else is the home page. */
+const routeFromPath = (): Route => (/\/quiz\/?$/.test(window.location.pathname) ? 'quiz' : 'home')
+
 export default function App() {
-  const [screen, setScreen] = useState<Screen>('home')
+  const [route, setRoute] = useState<Route>(routeFromPath)
+  const [screen, setScreen] = useState<QuizScreen>('landing')
   const [step, setStep] = useState(0)
   const [answers, setAnswers] = useState<Partial<Answers>>({})
   const [rec, setRec] = useState<Recommendation | null>(null)
 
   useEffect(() => initTracking(), [])
   useEffect(() => {
-    window.scrollTo({ top: 0 })
-  }, [screen, step])
+    const onPop = () => {
+      setRoute(routeFromPath())
+      setScreen('landing')
+    }
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [])
+  useEffect(() => {
+    if (window.location.hash) {
+      document.getElementById(window.location.hash.slice(1))?.scrollIntoView()
+    } else {
+      window.scrollTo({ top: 0 })
+    }
+  }, [route, screen, step])
+
+  const go = (to: Route, hash = '') => {
+    const path = to === 'quiz' ? '/quiz' : '/'
+    try {
+      window.history.pushState({}, '', path + hash)
+    } catch {
+      /* preview frames may block history; the view still switches */
+    }
+    setRoute(to)
+  }
 
   const start = () => {
     setAnswers({})
     setStep(0)
     setRec(null)
-    setScreen('quiz')
+    setScreen('questions')
+    if (route !== 'quiz') go('quiz')
     track('quiz_start')
   }
 
@@ -58,25 +87,35 @@ export default function App() {
     )
   }
 
+  const goHome = (hash = '') => {
+    setScreen('landing')
+    go('home', hash)
+  }
+
   return (
     <div className="app">
-      {screen === 'home' && <Home onStart={start} />}
-      {screen === 'quiz' && (
+      {route === 'home' && <Home onStart={start} />}
+      {route === 'quiz' && screen === 'landing' && <QuizLanding onStart={start} onHome={() => goHome()} />}
+      {route === 'quiz' && screen === 'questions' && (
         <Quiz
           step={step}
           answers={answers}
           onAnswer={answer}
-          onBack={() => (step === 0 ? setScreen('home') : setStep(step - 1))}
+          onBack={() => (step === 0 ? setScreen('landing') : setStep(step - 1))}
         />
       )}
-      {screen === 'reveal' && rec && <Reveal rec={rec} />}
-      {screen === 'result' && rec && (
+      {route === 'quiz' && screen === 'reveal' && rec && <Reveal rec={rec} />}
+      {route === 'quiz' && screen === 'result' && rec && (
         <Result
           rec={rec}
           answers={answers as Answers}
           onRetake={() => {
             track('retake_click', { persona: rec.persona.name })
             start()
+          }}
+          onHome={() => {
+            track('explore_home_click', { persona: rec.persona.name })
+            goHome('#menu')
           }}
         />
       )}
@@ -88,11 +127,18 @@ export default function App() {
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
 
-function Wordmark() {
+function Wordmark({ showMenuLink = false }: { showMenuLink?: boolean }) {
   return (
     <header className="topbar">
       <img className="logo" src={asset('brand/logo-wordmark.png')} alt="Matchadachi" width="900" height="116" />
-      <span className="topbar-place">{site.tagline}</span>
+      {showMenuLink ? (
+        <nav className="topbar-nav" aria-label="Page sections">
+          <a href="#menu">Menu</a>
+          <a href="#visit">Branches</a>
+        </nav>
+      ) : (
+        <span className="topbar-place">{site.tagline}</span>
+      )}
     </header>
   )
 }
@@ -117,7 +163,7 @@ function Home({ onStart }: { onStart: () => void }) {
   const [first, second] = site.campaignLine.split('. ')
   return (
     <main className="home">
-      <Wordmark />
+      <Wordmark showMenuLink />
       <section className="hero">
         <p className="eyebrow">The Dachi Matcha Quiz</p>
         <h1 className="hero-title">
@@ -168,6 +214,8 @@ function Home({ onStart }: { onStart: () => void }) {
         </button>
       </section>
 
+      <MenuSection onStart={onStart} />
+
       <section className="blends" aria-labelledby="blends-title">
         <h2 id="blends-title" className="section-title">
           Two blends, one love for matcha
@@ -192,7 +240,7 @@ function Home({ onStart }: { onStart: () => void }) {
         <p className="blends-footer">{site.blendsFooter}</p>
       </section>
 
-      <section className="visit" aria-labelledby="visit-title">
+      <section id="visit" className="visit" aria-labelledby="visit-title">
         <div className="visit-text">
           <h2 id="visit-title" className="section-title">
             Visit a Matchadachi
@@ -220,6 +268,138 @@ function Home({ onStart }: { onStart: () => void }) {
       </section>
 
       <Footer />
+    </main>
+  )
+}
+
+const blendLabel: Record<string, string> = { L1: 'Level 1', L2: 'Level 2', JB: 'Japan Blend' }
+
+interface MenuItem {
+  name: string
+  description: string
+  photo: string
+  blends: string[]
+  where?: string
+}
+interface MenuGroup {
+  id: string
+  label: string
+  note: string
+  items: MenuItem[]
+}
+const menuGroups = menu.groups as MenuGroup[]
+
+function MenuSection({ onStart }: { onStart: () => void }) {
+  const [tab, setTab] = useState(menuGroups[0].id)
+  const group = menuGroups.find((g) => g.id === tab) ?? menuGroups[0]
+  return (
+    <section id="menu" className="menu" aria-labelledby="menu-title">
+      <div className="menu-head">
+        <h2 id="menu-title" className="section-title">
+          The menu
+        </h2>
+        <p className="section-sub">{menu.intro}</p>
+      </div>
+      <div className="menu-tabs" role="tablist" aria-label="Menu categories">
+        {menuGroups.map((g) => (
+          <button
+            key={g.id}
+            id={`menu-tab-${g.id}`}
+            role="tab"
+            aria-selected={g.id === tab}
+            className={`menu-tab ${g.id === tab ? 'is-active' : ''}`}
+            onClick={() => setTab(g.id)}
+          >
+            {g.label}
+          </button>
+        ))}
+      </div>
+      <p className="menu-note">{group.note}</p>
+      <ul className="menu-grid" role="tabpanel" aria-labelledby={`menu-tab-${group.id}`}>
+        {group.items.map((item) => (
+          <li key={item.name} className="menu-item">
+            {item.photo ? (
+              <img src={asset(item.photo)} alt={item.name} width="640" height="640" loading="lazy" />
+            ) : (
+              <div className="menu-ph" aria-hidden="true">
+                <span>{item.name}</span>
+              </div>
+            )}
+            <div className="menu-body">
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+              {(item.blends.length > 0 || item.where) && (
+                <div className="menu-tags">
+                  {item.blends.map((b) => (
+                    <span key={b} className={`menu-tag tag-${b}`}>
+                      {blendLabel[b]}
+                    </span>
+                  ))}
+                  {item.where && <span className="menu-tag tag-where">{item.where}</span>}
+                </div>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+      {group.id === 'matcha' && (
+        <div className="menu-cta">
+          <p>Not sure which one is yours?</p>
+          <button className="btn btn-ghost" onClick={onStart}>
+            Take the quiz
+          </button>
+        </div>
+      )}
+    </section>
+  )
+}
+
+function QuizLanding({ onStart, onHome }: { onStart: () => void; onHome: () => void }) {
+  const [first, second] = site.campaignLine.split('. ')
+  return (
+    <main className="landing">
+      <header className="landing-top">
+        <img className="logo" src={asset('brand/logo-wordmark.png')} alt="Matchadachi" width="900" height="116" />
+      </header>
+      <section className="landing-hero">
+        <img
+          className="landing-photo"
+          src={asset('brand/japan-blend-lifestyle.jpg')}
+          alt="Three Matchadachi matcha drinks on a café table"
+          width="1100"
+          height="1100"
+        />
+        <div className="landing-body">
+          <img className="landing-mascot" src={asset('brand/favicon.png')} alt="" width="256" height="256" />
+          <p className="eyebrow">The Dachi Matcha Quiz</p>
+          <h1 className="landing-title">
+            <span>{first}.</span>
+            <span className="hero-accent">{second}</span>
+          </h1>
+          <p className="landing-sub">
+            Answer 5 quick questions to get your matcha persona and the exact drink to order today.
+          </p>
+          <button className="btn btn-primary btn-lg btn-block landing-cta" onClick={onStart} id="landing-start">
+            Start the quiz
+          </button>
+          <ul className="landing-steps" aria-label="How it works">
+            <li>
+              <strong>1</strong> Answer 5 questions
+            </li>
+            <li>
+              <strong>2</strong> Get your drink
+            </li>
+            <li>
+              <strong>3</strong> Show it at the counter
+            </li>
+          </ul>
+        </div>
+      </section>
+      <p className="landing-foot">
+        <button className="link-btn" onClick={onHome}>
+          Visit matchadachi.ph
+        </button>
+      </p>
     </main>
   )
 }
@@ -340,10 +520,12 @@ function Result({
   rec,
   answers,
   onRetake,
+  onHome,
 }: {
   rec: Recommendation
   answers: Answers
   onRetake: () => void
+  onHome: () => void
 }) {
   // Rotation for "Try Another Matcha": primary → secondary → others → back to primary
   const rotation = useMemo(
@@ -459,6 +641,13 @@ function Result({
             <p>Tap “Show This to Your Barista” at the counter and we'll take it from there.</p>
           </aside>
         )}
+
+        <div className="explore">
+          <p className="explore-text">Done ordering? See the rest of the Matchadachi menu and our branches.</p>
+          <button className="btn btn-primary btn-block" onClick={onHome} id="explore-home">
+            Explore Matchadachi
+          </button>
+        </div>
       </section>
 
       <Footer />

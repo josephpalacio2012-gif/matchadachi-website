@@ -29,6 +29,7 @@ export type TrackEvent =
   | 'show_barista_click'
   | 'try_another_click'
   | 'retake_click'
+  | 'explore_home_click'
 
 export function track(event: TrackEvent, data?: Record<string, string>) {
   try {

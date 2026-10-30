@@ -18,6 +18,7 @@ Everything lives in `src/config/`. Each file starts with a `_howToEdit` note.
 | `rules.json` | Which drink each set of answers gets (checked top to bottom, first match wins) |
 | `photos.json` | Which photo file goes with each drink and version |
 | `site.json` | Campaign line, tagline, the two blends, branch list, social handle, and the tracking ID |
+| `menu.json` | The menu on the home page: tabs, items, photos, blends, and which branch sells them |
 
 **Brand assets** (logo, mascot, lifestyle photos) are in `public/brand/`. All come from the owner's folder *Matchadachi/For the website*. Website colors use the two logo greens, dark `#445C3F` and light `#8FBB54`, set at the top of `src/index.css`.
 
@@ -26,6 +27,13 @@ Everything lives in `src/config/`. Each file starts with a `_howToEdit` note.
 **Safety net:** the tests check all 162 possible answer combinations. If you list a drink version in `rules.json` that isn't in `products.json`, the tests fail and Cloudflare won't publish the broken version.
 
 ---
+
+## Pages
+
+- **matchadachi.ph** is the home page: hero, personas, the menu, the two blends, and branches.
+- **matchadachi.ph/quiz** is the focused quiz page for the in-store QR code. After the result, "Explore Matchadachi" takes the customer to the home page menu.
+
+Menu photos are in `public/menu/` (food and non-matcha) and `public/products/` (matcha drinks), from the owner's folder.
 
 ## How the recommendation works
 
@@ -60,7 +68,7 @@ After that, every change saved to GitHub updates the live site automatically wit
 1. Create a free account at umami.is and add the website `matchadachi.ph`.
 2. Copy its **Website ID** into `umamiWebsiteId` in `src/config/site.json`.
 
-Tracked events: `quiz_start`, `quiz_complete` (persona and drink), `show_barista_click`, `try_another_click`, `retake_click`. No names, contact details or cookies are collected.
+Tracked events: `quiz_start`, `quiz_complete` (persona and drink), `show_barista_click`, `try_another_click`, `retake_click`, `explore_home_click`. No names, contact details or cookies are collected.
 
 ---
 
