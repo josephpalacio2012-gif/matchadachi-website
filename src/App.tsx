@@ -246,25 +246,26 @@ function Home({ onStart }: { onStart: () => void }) {
             Visit a Matchadachi
           </h2>
           <p className="section-sub">Take the quiz, then show your result at any branch.</p>
-          <ul className="branch-list">
-            {site.branches.map((br) => (
-              <li key={br.name} className="branch">
+        </div>
+        <ul className="branch-list">
+          {site.branches.map((br) => (
+            <li key={br.name} className="branch">
+              {br.photo ? (
+                <img className="branch-photo" src={asset(br.photo)} alt={`${br.name}`} width="720" height="900" loading="lazy" />
+              ) : (
+                <div className="branch-photo branch-ph" aria-hidden="true">
+                  <img src={asset('brand/favicon.png')} alt="" width="256" height="256" />
+                </div>
+              )}
+              <div className="branch-text">
                 <span className="branch-type">{br.type}</span>
                 <span className="branch-name">{br.name}</span>
                 <span className="branch-address">{br.address}</span>
                 <span className="branch-note">{br.note}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <img
-          className="visit-photo"
-          src={asset('brand/robinsons-kiosk.jpg')}
-          alt="The Matchadachi kiosk at Robinsons Place Malolos"
-          width="900"
-          height="1600"
-          loading="lazy"
-        />
+              </div>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <Footer />

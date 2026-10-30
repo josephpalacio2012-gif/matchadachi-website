@@ -9,7 +9,11 @@
       "name": "Dachi Blend",
       "levels": "Level 1 · Level 2",
       "line": "For friends starting out, or who like it sweet and creamy.",
-      "points": ["Creamy and well-balanced", "Sweet and approachable", "Level 1 is gentle, Level 2 is stronger"],
+      "points": [
+        "Creamy and well-balanced",
+        "Sweet and approachable",
+        "Level 1 is gentle, Level 2 is stronger"
+      ],
       "image": "brand/dachi-blend-lifestyle.jpg",
       "imageAlt": "Ichicha strawberry matcha latte on a café table"
     },
@@ -18,18 +22,44 @@
       "name": "Japan Blend",
       "levels": "First harvest",
       "line": "For friends who like full-bodied, complex matcha.",
-      "points": ["From Izumo, Shimane", "Okumidori and Samidori cultivars", "Nutty and umami, less sweet"],
+      "points": [
+        "From Izumo, Shimane",
+        "Okumidori and Samidori cultivars",
+        "Nutty and umami, less sweet"
+      ],
       "image": "brand/japan-blend-lifestyle.jpg",
       "imageAlt": "Three Japan Blend matcha drinks on a café table"
     }
   ],
   "blendsFooter": "At Matchadachi, all friends are welcome. Whisked for different tastes, the same love for matcha.",
   "branches": [
-    { "name": "Matchadachi Bulihan", "type": "Sit-down café", "address": "Blas Ople Road, Bulihan, Malolos, Bulacan", "note": "Near La Consolacion University. Full menu with rice bowls, pasta and snacks." },
-    { "name": "Robinsons Place Malolos", "type": "Kiosk", "address": "Robinsons Place Malolos, Bulacan", "note": "Grab-and-go matcha." },
-    { "name": "SM City Baliwag", "type": "Kiosk", "address": "SM City Baliwag, 1st floor, Bulacan", "note": "Grab-and-go matcha." }
+    {
+      "name": "Matchadachi Bulihan",
+      "type": "Sit-down café",
+      "address": "Blas Ople Road, Bulihan, Malolos, Bulacan",
+      "note": "Near La Consolacion University. Full menu with rice bowls, pasta and snacks.",
+      "photo": "brand/branch-bulihan.jpg"
+    },
+    {
+      "name": "Robinsons Place Malolos",
+      "type": "Kiosk",
+      "address": "Robinsons Place Malolos, Bulacan",
+      "note": "Grab-and-go matcha.",
+      "photo": "brand/branch-robinsons.jpg"
+    },
+    {
+      "name": "SM City Baliwag",
+      "type": "Kiosk",
+      "address": "SM City Baliwag, 1st floor, Bulacan",
+      "note": "Grab-and-go matcha.",
+      "photo": ""
+    }
   ],
-  "social": { "handle": "@matchadachiph", "facebook": "", "instagram": "" },
+  "social": {
+    "handle": "@matchadachiph",
+    "facebook": "",
+    "instagram": ""
+  },
   "umamiWebsiteId": "",
   "umamiScriptUrl": "https://cloud.umami.is/script.js"
 }

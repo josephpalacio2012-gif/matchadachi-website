@@ -135,9 +135,15 @@
           "blends": []
         },
         {
-          "name": "Cookies",
-          "description": "Matcha or chocolate.",
-          "photo": "",
+          "name": "Matcha Cookie",
+          "description": "Matcha cookie.",
+          "photo": "menu/cookie-matcha.jpg",
+          "blends": []
+        },
+        {
+          "name": "Chocolate Cookie",
+          "description": "Chocolate cookie.",
+          "photo": "menu/cookie-chocolate.jpg",
           "blends": []
         },
         {
