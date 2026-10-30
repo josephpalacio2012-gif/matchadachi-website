@@ -2,14 +2,14 @@
   "_howToEdit": "Product photo for each drink and version. Photo files live in public/products. Write the file name here, e.g. \"ichicha.jpg\". Leave a value as \"\" when there is no photo: the site shows a plain Matchadachi placeholder. All photos come from the owner's folder 'Matchadachi/For the website/New High quality shots'.",
   "_sources": {
     "ichicha.jpg": "1. Ichicha stylish use this.png",
-    "machami.jpg": "34. Machami.png",
+    "machami.jpg": "37. Machami hi-res.png",
     "torocha.jpg": "32. Torocha Hi-res stylish copy.png",
     "hachami.jpg": "35. Hachami Hi-res stylish copy 2.png (same image file as Torocha)",
     "reicha.jpg": "33. Reicha Hi-res stylish.png (same image file as Torocha)",
     "shiocha.jpg": "31. Shiocha stylish.png",
-    "cococha.jpg": "5. cococha hi res.png",
-    "marokokucha.jpg": "20. Marokokucha photo.png",
-    "hojicha.jpg": "10. Hojicha photo.png",
+    "cococha.jpg": "38. Cococha.png",
+    "marokokucha.jpg": "42. Marokokucha.png",
+    "hojicha.jpg": "39. Hojicha hi res.png",
     "Levels and blends": "Owner's decision (Oct 28, 2026): each drink uses one photo for Level 1, Level 2 and Japan Blend. Torocha, Hachami and Reicha share one photo, also by owner's decision."
   },
   "ichicha.L1": "ichicha.jpg",

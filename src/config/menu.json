@@ -7,15 +7,89 @@
       "label": "Matcha",
       "note": "Every Dachi Blend drink comes in Level 1 (gentle) or Level 2 (stronger). Japan Blend is our first-harvest matcha from Izumo, Shimane.",
       "items": [
-        { "name": "Torocha", "description": "Sweetened matcha latte.", "photo": "products/torocha.jpg", "blends": ["L1", "L2", "JB"] },
-        { "name": "Shiocha", "description": "Sweetened matcha latte with thick sea-salt cream.", "photo": "products/shiocha.jpg", "blends": ["L1", "L2", "JB"] },
-        { "name": "Ichicha", "description": "Sweetened matcha latte with strawberry jam.", "photo": "products/ichicha.jpg", "blends": ["L1", "L2", "JB"] },
-        { "name": "Machami", "description": "Sweetened matcha latte with mango jam.", "photo": "products/machami.jpg", "blends": ["L1", "L2", "JB"] },
-        { "name": "Hachami", "description": "Matcha latte with honey.", "photo": "products/hachami.jpg", "blends": ["L1", "L2"] },
-        { "name": "Reicha", "description": "Unsweetened matcha latte.", "photo": "products/reicha.jpg", "blends": ["L1", "L2", "JB"] },
-        { "name": "Cococha", "description": "Coconut juice topped with a matcha cream cloud.", "photo": "products/cococha.jpg", "blends": ["L1", "L2"] },
-        { "name": "Marokokucha", "description": "Cereal milk matcha latte with sea-salt cream.", "photo": "products/marokokucha.jpg", "blends": ["L1", "L2"] },
-        { "name": "Hojicha", "description": "Roasted green tea latte. Not matcha.", "photo": "products/hojicha.jpg", "blends": [] }
+        {
+          "name": "Torocha",
+          "description": "Sweetened matcha latte.",
+          "photo": "products/torocha.jpg",
+          "blends": [
+            "L1",
+            "L2",
+            "JB"
+          ]
+        },
+        {
+          "name": "Shiocha",
+          "description": "Sweetened matcha latte with thick sea-salt cream.",
+          "photo": "products/shiocha.jpg",
+          "blends": [
+            "L1",
+            "L2",
+            "JB"
+          ]
+        },
+        {
+          "name": "Ichicha",
+          "description": "Sweetened matcha latte with strawberry jam.",
+          "photo": "products/ichicha.jpg",
+          "blends": [
+            "L1",
+            "L2",
+            "JB"
+          ]
+        },
+        {
+          "name": "Machami",
+          "description": "Sweetened matcha latte with mango jam.",
+          "photo": "products/machami.jpg",
+          "blends": [
+            "L1",
+            "L2",
+            "JB"
+          ]
+        },
+        {
+          "name": "Hachami",
+          "description": "Matcha latte with honey.",
+          "photo": "products/hachami.jpg",
+          "blends": [
+            "L1",
+            "L2"
+          ]
+        },
+        {
+          "name": "Reicha",
+          "description": "Unsweetened matcha latte.",
+          "photo": "products/reicha.jpg",
+          "blends": [
+            "L1",
+            "L2",
+            "JB"
+          ]
+        },
+        {
+          "name": "Cococha",
+          "description": "Coconut juice topped with a matcha cream cloud.",
+          "photo": "products/cococha.jpg",
+          "blends": [
+            "L1",
+            "L2"
+          ]
+        },
+        {
+          "name": "Marokokucha",
+          "description": "Cereal milk matcha latte with sea-salt cream.",
+          "photo": "products/marokokucha.jpg",
+          "blends": [
+            "L1",
+            "L2"
+          ]
+        },
+        {
+          "name": "Hojicha",
+          "description": "Roasted green tea latte. Not matcha.",
+          "photo": "products/hojicha.jpg",
+          "blends": []
+        }
       ]
     },
     {
@@ -23,9 +97,24 @@
       "label": "Not matcha",
       "note": "For the dachi who isn't into matcha (yet).",
       "items": [
-        { "name": "Ichinuu", "description": "Strawberry latte.", "photo": "", "blends": [] },
-        { "name": "Mangonuu", "description": "Mango latte.", "photo": "", "blends": [] },
-        { "name": "Miro Zaurus", "description": "Milo dinosaur.", "photo": "menu/miro-zaurus.jpg", "blends": [] }
+        {
+          "name": "Ichinuu",
+          "description": "Strawberry latte.",
+          "photo": "menu/ichinuu.jpg",
+          "blends": []
+        },
+        {
+          "name": "Mangonuu",
+          "description": "Mango latte.",
+          "photo": "menu/mangonuu.jpg",
+          "blends": []
+        },
+        {
+          "name": "Miro Zaurus",
+          "description": "Milo dinosaur.",
+          "photo": "menu/miro-zaurus.jpg",
+          "blends": []
+        }
       ]
     },
     {
@@ -33,11 +122,37 @@
       "label": "Sweets",
       "note": "Easy add-ons to your drink.",
       "items": [
-        { "name": "Revel Bar Matcha", "description": "Matcha revel bar.", "photo": "menu/revel-bar-matcha.jpg", "blends": [] },
-        { "name": "Revel Bar Chocolate", "description": "Chocolate revel bar.", "photo": "menu/revel-bar-chocolate.jpg", "blends": [] },
-        { "name": "Cookies", "description": "Matcha or chocolate.", "photo": "", "blends": [] },
-        { "name": "Burnt Basque Cheesecake", "description": "Matcha cheesecake cup.", "photo": "", "blends": [] },
-        { "name": "Mochi Dango", "description": "Japanese rice dumplings.", "photo": "", "blends": [], "where": "Bulihan & Robinsons" }
+        {
+          "name": "Revel Bar Matcha",
+          "description": "Matcha revel bar.",
+          "photo": "menu/revel-bar-matcha.jpg",
+          "blends": []
+        },
+        {
+          "name": "Revel Bar Chocolate",
+          "description": "Chocolate revel bar.",
+          "photo": "menu/revel-bar-chocolate.jpg",
+          "blends": []
+        },
+        {
+          "name": "Cookies",
+          "description": "Matcha or chocolate.",
+          "photo": "",
+          "blends": []
+        },
+        {
+          "name": "Burnt Basque Cheesecake",
+          "description": "Matcha cheesecake cup.",
+          "photo": "",
+          "blends": []
+        },
+        {
+          "name": "Mochi Dango",
+          "description": "Japanese rice dumplings.",
+          "photo": "",
+          "blends": [],
+          "where": "Bulihan & Robinsons"
+        }
       ]
     },
     {
@@ -45,15 +160,69 @@
       "label": "Café food",
       "note": "Rice bowls, pasta and snacks, served at our Bulihan sit-down café.",
       "items": [
-        { "name": "Katsudon", "description": "Rice bowl.", "photo": "menu/katsudon.jpg", "blends": [], "where": "Bulihan café" },
-        { "name": "Karaage Rice Bowl", "description": "Japanese fried chicken on rice.", "photo": "menu/karaage-rice-bowl.jpg", "blends": [], "where": "Bulihan café" },
-        { "name": "Gyudon", "description": "Rice bowl.", "photo": "", "blends": [], "where": "Bulihan café" },
-        { "name": "Mushroom Carbonara", "description": "Pasta with parmesan.", "photo": "menu/mushroom-carbonara.jpg", "blends": [], "where": "Bulihan café" },
-        { "name": "Spanish Sardine Pasta", "description": "Drizzled with parmesan.", "photo": "menu/spanish-sardine-pasta.jpg", "blends": [], "where": "Bulihan café" },
-        { "name": "Truffle Chicken Pasta", "description": "Pasta.", "photo": "menu/truffle-chicken-pasta.jpg", "blends": [], "where": "Bulihan café" },
-        { "name": "Japanese Egg Sandwich + Fries", "description": "Egg sandwich with a side of fries.", "photo": "menu/egg-sandwich-fries.jpg", "blends": [], "where": "Bulihan café" },
-        { "name": "Fries", "description": "Regular or spiced.", "photo": "menu/fries.jpg", "blends": [], "where": "Bulihan café" },
-        { "name": "Karaage Poppers", "description": "Bite-size fried chicken.", "photo": "", "blends": [], "where": "Bulihan café" }
+        {
+          "name": "Katsudon",
+          "description": "Rice bowl.",
+          "photo": "menu/katsudon.jpg",
+          "blends": [],
+          "where": "Bulihan café"
+        },
+        {
+          "name": "Karaage Rice Bowl",
+          "description": "Japanese fried chicken on rice.",
+          "photo": "menu/karaage-rice-bowl.jpg",
+          "blends": [],
+          "where": "Bulihan café"
+        },
+        {
+          "name": "Gyudon",
+          "description": "Rice bowl.",
+          "photo": "",
+          "blends": [],
+          "where": "Bulihan café"
+        },
+        {
+          "name": "Mushroom Carbonara",
+          "description": "Pasta with parmesan.",
+          "photo": "menu/mushroom-carbonara.jpg",
+          "blends": [],
+          "where": "Bulihan café"
+        },
+        {
+          "name": "Spanish Sardine Pasta",
+          "description": "Drizzled with parmesan.",
+          "photo": "menu/spanish-sardine-pasta.jpg",
+          "blends": [],
+          "where": "Bulihan café"
+        },
+        {
+          "name": "Truffle Chicken Pasta",
+          "description": "Pasta.",
+          "photo": "menu/truffle-chicken-pasta.jpg",
+          "blends": [],
+          "where": "Bulihan café"
+        },
+        {
+          "name": "Japanese Egg Sandwich + Fries",
+          "description": "Egg sandwich with a side of fries.",
+          "photo": "menu/egg-sandwich-fries.jpg",
+          "blends": [],
+          "where": "Bulihan café"
+        },
+        {
+          "name": "Fries",
+          "description": "Regular or spiced.",
+          "photo": "menu/fries.jpg",
+          "blends": [],
+          "where": "Bulihan café"
+        },
+        {
+          "name": "Karaage Poppers",
+          "description": "Bite-size fried chicken.",
+          "photo": "",
+          "blends": [],
+          "where": "Bulihan café"
+        }
       ]
     }
   ]
